@@ -5,6 +5,8 @@ namespace EscolaDeCursos.Dominio;
 
 public class Curso : EntidadeBase<Curso>
 {
+    public ICollection<Modulo> Modulos { get; set; }
+    = new List<Modulo>();
     public string Titulo { get; set; } = string.Empty;
 
     public string Descricao { get; set; } = string.Empty;
@@ -16,9 +18,6 @@ public class Curso : EntidadeBase<Curso>
     public Guid CategoriaId { get; set; }
 
     public Categoria? Categoria { get; set; }
-
-    public ICollection<Modulo> Modulos { get; set; }
-        = new List<Modulo>();
 
     public ICollection<Turma> Turmas { get; set; }
         = new List<Turma>();
