@@ -18,9 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EscolaDeCursos.Aplicacao\EscolaDeCursos.Aplicacao.csproj" />
     <ProjectReference Include="..\EscolaDeCursos.Dominio\EscolaDeCursos.Dominio.csproj" />
-    <ProjectReference Include="..\EscolaDeCursos.WebApp\EscolaDeCursos.WebApp.csproj" />
   </ItemGroup>
 
 </Project>

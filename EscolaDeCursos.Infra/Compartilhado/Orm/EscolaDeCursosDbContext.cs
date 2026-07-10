@@ -8,6 +8,7 @@ public sealed class EscolaDeCursosDbContext(
     DbContextOptions<EscolaDeCursosDbContext> options) : DbContext(options)
 {
     public DbSet<Categoria> Categorias { get; set; }
+    public DbSet<Curso> Cursos { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         Assembly assembly = typeof(EscolaDeCursosDbContext).Assembly;
