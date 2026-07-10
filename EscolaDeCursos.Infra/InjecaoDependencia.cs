@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using EscolaDeCursos.Dominio;
+using EscolaDeCursos.Infra.Repositorios;
 
 namespace EscolaDeCursos.Infra;
 
@@ -34,6 +36,9 @@ public static class InjecaoDependencia
                     $"A connection string \"SqlServerEF\" não foi encontrada."
                 );
             }
+
+            services.AddScoped<IRepositorioCategoria,
+                RepositorioCategoriaOrm>();
 
             options.UseSqlServer(connectionString, opt =>
             {

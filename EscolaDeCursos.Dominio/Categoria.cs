@@ -6,6 +6,9 @@ public class Categoria : EntidadeBase<Categoria>
 {
     public string Titulo { get; set; } = string.Empty;
 
+    public ICollection<Curso> Cursos { get; set; }
+        = new List<Curso>();
+
     protected Categoria() { }
 
     public Categoria(string titulo)

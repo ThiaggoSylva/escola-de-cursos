@@ -17,4 +17,10 @@
     <PackageReference Include="Serilog.Sinks.NewRelic.Logs" Version="1.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EscolaDeCursos.Aplicacao\EscolaDeCursos.Aplicacao.csproj" />
+    <ProjectReference Include="..\EscolaDeCursos.Dominio\EscolaDeCursos.Dominio.csproj" />
+    <ProjectReference Include="..\EscolaDeCursos.WebApp\EscolaDeCursos.WebApp.csproj" />
+  </ItemGroup>
+
 </Project>
