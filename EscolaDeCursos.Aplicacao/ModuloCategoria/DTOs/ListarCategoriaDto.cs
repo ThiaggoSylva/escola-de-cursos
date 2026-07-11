@@ -1,4 +1,4 @@
-namespace EscolaDeCursos.Aplicacao.DTOs.Categoria;
+namespace EscolaDeCursos.Aplicacao.ModuloCategoria.DTOs;
 
 public record ListarCategoriaDto(
     Guid Id,
