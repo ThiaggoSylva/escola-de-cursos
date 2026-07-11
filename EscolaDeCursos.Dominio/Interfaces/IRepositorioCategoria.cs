@@ -1,6 +1,8 @@
+using EscolaDeCursos.Dominio.Compartilhado;
+
 namespace EscolaDeCursos.Dominio;
 
-public interface IRepositorioCategoria
+public interface IRepositorioCategoria : IRepositorio<Categoria>
 {
     Categoria? SelecionarPorTitulo(string titulo);
 
