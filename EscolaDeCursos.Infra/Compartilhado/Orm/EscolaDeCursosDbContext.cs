@@ -13,6 +13,7 @@ public sealed class EscolaDeCursosDbContext(
     public DbSet<Instrutor> Instrutores { get; set; }
     public DbSet<Aluno> Alunos { get; set; }
     public DbSet<Turma> Turmas { get; set; }
+    public DbSet<Matricula> Matriculas { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         Assembly assembly = typeof(EscolaDeCursosDbContext).Assembly;
