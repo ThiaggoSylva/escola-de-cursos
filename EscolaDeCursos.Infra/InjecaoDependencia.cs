@@ -37,13 +37,18 @@ public static class InjecaoDependencia
                 );
             }
 
-            services.AddScoped<IRepositorioCategoria,
-                RepositorioCategoriaOrm>();
-
             options.UseSqlServer(connectionString, opt =>
             {
                 opt.EnableRetryOnFailure(3);
             });
         });
+
+            services.AddScoped<IRepositorioCategoria, RepositorioCategoriaOrm>();
+            services.AddScoped<IRepositorioCurso, RepositorioCursoOrm>();
+            services.AddScoped<IRepositorioModulo, RepositorioModuloOrm>();
+            services.AddScoped<IRepositorioInstrutor, RepositorioInstrutorOrm>();
+            services.AddScoped<IRepositorioAluno, RepositorioAlunoOrm>();
+            services.AddScoped<IRepositorioTurma, RepositorioTurmaOrm>();
+            services.AddScoped<IRepositorioMatricula, RepositorioMatriculaOrm>();
     }
 }
