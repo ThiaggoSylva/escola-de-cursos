@@ -1,6 +1,7 @@
 using EscolaDeCursos.Aplicacao.ModuloCategoria.Servicos;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using EscolaDeCursos.Aplicacao.ModuloCurso.Servicos;
 
 namespace EscolaDeCursos.Aplicacao;
 
@@ -11,6 +12,7 @@ public static class InjecaoDependencia
         IConfiguration configuration
     )
     {
-         services.AddScoped<ServicoCategoria>();
+        services.AddScoped<ServicoCategoria>();
+        services.AddScoped<ServicoCurso>();
     }
 }
