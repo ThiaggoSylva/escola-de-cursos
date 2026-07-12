@@ -1,0 +1,26 @@
+@using EscolaDeCursos.ModuloCategoria.Apresentacao.Models
+@model ExcluirCategoriaViewModel
+
+<h2>Excluir Categoria</h2>
+
+<p>
+    Deseja realmente excluir a categoria
+    <strong>@Model.Titulo</strong>?
+</p>
+
+<form asp-action="ConfirmarExclusao">
+
+    <input type="hidden"
+           asp-for="Id" />
+
+    <button type="submit"
+            class="btn btn-danger">
+        Confirmar
+    </button>
+
+    <a asp-action="Listar"
+       class="btn btn-secondary">
+        Cancelar
+    </a>
+
+</form>

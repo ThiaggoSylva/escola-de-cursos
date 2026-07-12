@@ -1,0 +1,41 @@
+@using EscolaDeCursos.ModuloCategoria.Apresentacao.Models
+@model List<ListarCategoriaViewModel>
+
+<h2>Categorias</h2>
+
+<a asp-action="Inserir"
+   class="btn btn-primary mb-3">
+    Nova Categoria
+</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th width="180"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var categoria in Model)
+        {
+            <tr>
+                <td>@categoria.Titulo</td>
+
+                <td>
+                    <a asp-action="Editar"
+                       asp-route-id="@categoria.Id"
+                       class="btn btn-warning">
+                        Editar
+                    </a>
+
+                    <a asp-action="Excluir"
+                       asp-route-id="@categoria.Id"
+                       class="btn btn-danger">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
