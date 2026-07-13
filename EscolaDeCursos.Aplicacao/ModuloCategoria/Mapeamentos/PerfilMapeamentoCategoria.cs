@@ -1,16 +1,23 @@
 using AutoMapper;
-using EscolaDeCursos.Aplicacao.ModuloCategoria.DTOs;
-using EscolaDeCursos.Dominio;
 
-namespace EscolaDeCursos.Aplicacao.ModuloCategoria.Mapeamentos;
+using EscolaDeCursos.Dominio;
+using EscolaDeCursos.Aplicacao.ModuloCategoria.DTOs;
+
+namespace EscolaDeCursos.Aplicacao.ModuloCategoria;
 
 public class PerfilMapeamentoCategoria : Profile
 {
     public PerfilMapeamentoCategoria()
     {
-        CreateMap<CadastrarCategoriaDto, Categoria>();
+        Console.WriteLine("PerfilMapeamentoCategoria carregado");
 
-        CreateMap<EditarCategoriaDto, Categoria>();
+        CreateMap<CadastrarCategoriaDto, Categoria>()
+            .ConstructUsing(dto =>
+                new Categoria(dto.Titulo));
+
+        CreateMap<EditarCategoriaDto, Categoria>()
+            .ConstructUsing(dto =>
+                new Categoria(dto.Titulo));
 
         CreateMap<Categoria, ListarCategoriaDto>();
 

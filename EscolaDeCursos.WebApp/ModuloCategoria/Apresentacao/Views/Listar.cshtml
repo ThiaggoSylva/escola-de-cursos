@@ -1,41 +1,89 @@
 @using EscolaDeCursos.ModuloCategoria.Apresentacao.Models
 @model List<ListarCategoriaViewModel>
 
-<h2>Categorias</h2>
+@{
+    ViewData["Title"] = "Categorias";
+}
 
-<a asp-action="Inserir"
-   class="btn btn-primary mb-3">
-    Nova Categoria
-</a>
+<div class="page-header">
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th width="180"></th>
-        </tr>
-    </thead>
+    <h2 class="titulo-pagina">
+        Categorias
+    </h2>
 
-    <tbody>
-        @foreach(var categoria in Model)
+    <a asp-action="Inserir"
+       class="btn btn-primary">
+
+        <i class="bi bi-plus-circle"></i>
+        Nova Categoria
+
+    </a>
+
+</div>
+
+<div class="card card-dashboard">
+
+    <div class="card-body">
+
+        @if (!Model.Any())
         {
-            <tr>
-                <td>@categoria.Titulo</td>
+            <div class="alert alert-info">
 
-                <td>
-                    <a asp-action="Editar"
-                       asp-route-id="@categoria.Id"
-                       class="btn btn-warning">
-                        Editar
-                    </a>
+                Nenhuma categoria cadastrada.
 
-                    <a asp-action="Excluir"
-                       asp-route-id="@categoria.Id"
-                       class="btn btn-danger">
-                        Excluir
-                    </a>
-                </td>
-            </tr>
+            </div>
         }
-    </tbody>
-</table>
+        else
+        {
+            <table class="table table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th>Título</th>
+                        <th width="180">Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var categoria in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @categoria.Titulo
+                            </td>
+
+                            <td>
+
+                                <a asp-action="Editar"
+                                   asp-route-id="@categoria.Id"
+                                   class="btn btn-sm btn-warning">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+                                <a asp-action="Excluir"
+                                   asp-route-id="@categoria.Id"
+                                   class="btn btn-sm btn-danger">
+
+                                    <i class="bi bi-trash"></i>
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        }
+
+    </div>
+
+</div>

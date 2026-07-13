@@ -1,0 +1,66 @@
+<aside class="col-md-2 sidebar">
+
+    <div class="menu-titulo">
+        Menu
+    </div>
+
+   <nav class="nav flex-column">
+
+    @{
+    string? controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    }
+
+        <a class="nav-link @(controller == "Categoria" ? "active" : "")"
+            asp-controller="Categoria"
+            asp-action="Listar">
+
+            <i class="bi bi-tags"></i>
+            Categorias
+
+        </a>
+
+        <a class="nav-link @(controller == "Curso" ? "active" : "")"
+           asp-controller="Curso"
+           asp-action="Listar">
+            <i class="bi bi-journal-bookmark"></i>
+            Cursos
+        </a>
+
+        <a class="nav-link @(controller == "Modulo" ? "active" : "")"
+           asp-controller="Modulo"
+           asp-action="Listar">
+            <i class="bi bi-collection-play"></i>
+            Módulos
+        </a>
+
+        <a class="nav-link @(controller == "Instrutor" ? "active" : "")"
+           asp-controller="Instrutor"
+           asp-action="Listar">
+            <i class="bi bi-person-workspace"></i>
+            Instrutores
+        </a>
+
+        <a class="nav-link @(controller == "Aluno" ? "active" : "")"
+           asp-controller="Aluno"
+           asp-action="Listar">
+            <i class="bi bi-people"></i>
+            Alunos
+        </a>
+
+        <a class="nav-link @(controller == "Turma" ? "active" : "")"
+           asp-controller="Turma"
+           asp-action="Listar">
+            <i class="bi bi-diagram-3"></i>
+            Turmas
+        </a>
+
+        <a class="nav-link @(controller == "Matricula" ? "active" : "")"
+           asp-controller="Matricula"
+           asp-action="Listar">
+            <i class="bi bi-mortarboard"></i>
+            Matrículas
+        </a>
+
+    </nav>
+
+</aside>

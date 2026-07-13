@@ -1,22 +1,16 @@
 @using EscolaDeCursos.ModuloCategoria.Apresentacao.Models
 @model FormularioCategoriaViewModel
-<div asp-validation-summary="All"></div>
 
 <div class="mb-3">
-    <label asp-for="Titulo"></label>
+
+    <label asp-for="Titulo" class="form-label">
+    </label>
 
     <input asp-for="Titulo"
            class="form-control" />
 
-    <span asp-validation-for="Titulo"></span>
+    <span asp-validation-for="Titulo"
+          class="text-danger">
+    </span>
+
 </div>
-
-<button type="submit"
-        class="btn btn-primary">
-    Salvar
-</button>
-
-<a asp-action="Listar"
-   class="btn btn-secondary">
-    Voltar
-</a>

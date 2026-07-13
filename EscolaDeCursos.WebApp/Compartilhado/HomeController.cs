@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace EscolaDeCursos.WebApp.Compartilhado.Apresentacao;
+namespace EscolaDeCursos.WebApp.Controllers;
 
 public class HomeController : Controller
 {
-    [HttpGet]
-    public ActionResult Index()
+    public IActionResult Index()
     {
         return View();
     }

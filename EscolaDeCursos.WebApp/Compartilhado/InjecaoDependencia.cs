@@ -15,11 +15,17 @@ public static class InjecaoDependencia
             // Reseta a configuração padrão do MVC
             options.ViewLocationFormats.Clear();
 
-            // Localização das Views dos módulos: Modulos/ModuloCaixa/Apresentacao/Views/Listar.cshtml
-            options.ViewLocationFormats.Add("/Modulos/Modulo{1}/Apresentacao/Views/{0}.cshtml");
+            options.ViewLocationFormats.Add(
+                "/Modulo{1}/Apresentacao/Views/{0}.cshtml"
+            );
 
-            // Localização das Views compartilhadas: /Compartilhado/Apresentacao/Views/_Layout.cshtml
-            options.ViewLocationFormats.Add("/Compartilhado/Apresentacao/Views/{0}.cshtml");
+            options.ViewLocationFormats.Add(
+                "/Compartilhado/Apresentacao/Views/Home/{0}.cshtml"
+            );
+
+            options.ViewLocationFormats.Add(
+                "/Compartilhado/Apresentacao/Views/Shared/{0}.cshtml"
+            );
         });
 
         services.AddAutoMapper(mapperConfig =>
@@ -37,3 +43,4 @@ public static class InjecaoDependencia
         });
     }
 }
+

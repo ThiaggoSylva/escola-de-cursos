@@ -1,0 +1,14 @@
+@using EscolaDeCursos.ModuloCurso.Apresentacao.Models
+@model CadastrarCursoViewModel
+
+@{
+    ViewBag.Titulo = "Novo Curso";
+}
+
+<h2>@ViewBag.Titulo</h2>
+
+<form method="post">
+
+    <partial name="Formulario" model="Model"/>
+
+</form>

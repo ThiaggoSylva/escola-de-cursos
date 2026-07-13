@@ -2,10 +2,9 @@ using AutoMapper;
 using EscolaDeCursos.Aplicacao.ModuloCategoria.DTOs;
 using EscolaDeCursos.Aplicacao.ModuloCategoria.Servicos;
 using EscolaDeCursos.ModuloCategoria.Apresentacao.Models;
-using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EscolaDeCursos.ModuloCategoria.Apresentacao.Controllers;
+namespace EscolaDeCursos.WebApp.ModuloCategoria.Apresentacao.Controllers;
 
 public class CategoriaController : Controller
 {
@@ -24,22 +23,20 @@ public class CategoriaController : Controller
     {
         var resultado = servicoCategoria.SelecionarTodos();
 
-        var registros =
-            mapper.Map<List<ListarCategoriaViewModel>>(
-                resultado.Value);
+        var viewModel =
+            mapper.Map<List<ListarCategoriaViewModel>>(resultado.Value);
 
-        return View(registros);
+        return View(viewModel);
     }
 
     [HttpGet]
     public IActionResult Inserir()
     {
-        return View();
+        return View(new CadastrarCategoriaViewModel());
     }
 
     [HttpPost]
-    public IActionResult Inserir(
-        CadastrarCategoriaViewModel viewModel)
+    public IActionResult Inserir(CadastrarCategoriaViewModel viewModel)
     {
         if (!ModelState.IsValid)
             return View(viewModel);
@@ -47,18 +44,16 @@ public class CategoriaController : Controller
         var dto =
             mapper.Map<CadastrarCategoriaDto>(viewModel);
 
-        Result<Guid> resultado =
+        var resultado =
             servicoCategoria.Cadastrar(dto);
 
         if (resultado.IsFailed)
         {
-            foreach (var erro in resultado.Errors)
-                ModelState.AddModelError(
-                    string.Empty,
-                    erro.Message);
-
+            TempData["Erro"] = resultado.Errors[0].Message;
             return View(viewModel);
         }
+
+        TempData["Sucesso"] = "Categoria cadastrada com sucesso.";
 
         return RedirectToAction(nameof(Listar));
     }
@@ -66,15 +61,13 @@ public class CategoriaController : Controller
     [HttpGet]
     public IActionResult Editar(Guid id)
     {
-        var resultado =
-            servicoCategoria.SelecionarPorId(id);
+        var resultado = servicoCategoria.SelecionarPorId(id);
 
         if (resultado.IsFailed)
             return RedirectToAction(nameof(Listar));
 
         var viewModel =
-            mapper.Map<EditarCategoriaViewModel>(
-                resultado.Value);
+            mapper.Map<EditarCategoriaViewModel>(resultado.Value);
 
         return View(viewModel);
     }
@@ -95,13 +88,11 @@ public class CategoriaController : Controller
 
         if (resultado.IsFailed)
         {
-            foreach (var erro in resultado.Errors)
-                ModelState.AddModelError(
-                    string.Empty,
-                    erro.Message);
-
+            TempData["Erro"] = resultado.Errors[0].Message;
             return View(viewModel);
         }
+
+        TempData["Sucesso"] = "Categoria editada com sucesso.";
 
         return RedirectToAction(nameof(Listar));
     }
@@ -109,15 +100,13 @@ public class CategoriaController : Controller
     [HttpGet]
     public IActionResult Excluir(Guid id)
     {
-        var resultado =
-            servicoCategoria.SelecionarPorId(id);
+        var resultado = servicoCategoria.SelecionarPorId(id);
 
         if (resultado.IsFailed)
             return RedirectToAction(nameof(Listar));
 
         var viewModel =
-            mapper.Map<ExcluirCategoriaViewModel>(
-                resultado.Value);
+            mapper.Map<ExcluirCategoriaViewModel>(resultado.Value);
 
         return View(viewModel);
     }
@@ -125,14 +114,15 @@ public class CategoriaController : Controller
     [HttpPost]
     public IActionResult ConfirmarExclusao(Guid id)
     {
-        var resultado =
-            servicoCategoria.Excluir(id);
+        var resultado = servicoCategoria.Excluir(id);
 
         if (resultado.IsFailed)
         {
-            TempData["Erro"] =
-                resultado.Errors.First().Message;
+            TempData["Erro"] = resultado.Errors[0].Message;
+            return RedirectToAction(nameof(Listar));
         }
+
+        TempData["Sucesso"] = "Categoria excluída com sucesso.";
 
         return RedirectToAction(nameof(Listar));
     }
