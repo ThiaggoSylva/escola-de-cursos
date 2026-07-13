@@ -1,25 +1,21 @@
-@using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
-@model List<ListarAlunoViewModel>
+@using EscolaDeCursos.WebApp.ModuloTurma.Apresentacao.Models
+@model List<ListarTurmaViewModel>
 
 @{
-    Layout = "_Layout";
-}
-
-@{
-    ViewData["Title"] = "Alunos";
+    ViewData["Title"] = "Turmas";
 }
 
 <div class="page-header">
 
     <h2 class="titulo-pagina">
-        Alunos
+        Turmas
     </h2>
 
     <a asp-action="Inserir"
        class="btn btn-primary">
 
         <i class="bi bi-plus-circle"></i>
-        Novo Aluno
+        Nova Turma
 
     </a>
 
@@ -32,7 +28,7 @@
         @if (!Model.Any())
         {
             <div class="alert alert-info">
-                Nenhum aluno cadastrado.
+                Nenhuma turma cadastrada.
             </div>
         }
         else
@@ -43,9 +39,11 @@
 
                     <tr>
                         <th>Nome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>CPF</th>
+                        <th>Curso</th>
+                        <th>Instrutor</th>
+                        <th>Início</th>
+                        <th>Término</th>
+                        <th>Capacidade</th>
                         <th width="180">Ações</th>
                     </tr>
 
@@ -53,22 +51,26 @@
 
                 <tbody>
 
-                    @foreach (var aluno in Model)
+                    @foreach (var turma in Model)
                     {
                         <tr>
 
-                            <td>@aluno.Nome</td>
+                            <td>@turma.Nome</td>
 
-                            <td>@aluno.Email</td>
+                            <td>@turma.Curso</td>
 
-                            <td>@aluno.Telefone</td>
+                            <td>@turma.Instrutor</td>
 
-                            <td>@aluno.CPF</td>
+                            <td>@turma.DataInicio.ToString("dd/MM/yyyy")</td>
+
+                            <td>@turma.DataTermino.ToString("dd/MM/yyyy")</td>
+
+                            <td>@turma.CapacidadeMaxima</td>
 
                             <td>
 
                                 <a asp-action="Editar"
-                                   asp-route-id="@aluno.Id"
+                                   asp-route-id="@turma.Id"
                                    class="btn btn-sm btn-warning">
 
                                     <i class="bi bi-pencil"></i>
@@ -76,7 +78,7 @@
                                 </a>
 
                                 <a asp-action="Excluir"
-                                   asp-route-id="@aluno.Id"
+                                   asp-route-id="@turma.Id"
                                    class="btn btn-sm btn-danger">
 
                                     <i class="bi bi-trash"></i>

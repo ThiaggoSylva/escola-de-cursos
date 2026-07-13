@@ -1,0 +1,20 @@
+@using EscolaDeCursos.ModuloCurso.Apresentacao.Models
+@model EditarCursoViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewBag.Titulo = "Editar Curso";
+}
+
+<h2>@ViewBag.Titulo</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Id"/>
+
+    <partial name="Formulario" model="Model"/>
+
+</form>

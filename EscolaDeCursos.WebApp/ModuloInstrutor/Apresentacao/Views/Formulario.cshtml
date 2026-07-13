@@ -1,9 +1,5 @@
-@using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
-@model FormularioAlunoViewModel
-
-@{
-    Layout = "_Layout";
-}
+@using EscolaDeCursos.WebApp.ModuloInstrutor.Apresentacao.Models
+@model FormularioInstrutorViewModel
 
 <div class="mb-3">
     <label asp-for="Nome" class="form-label"></label>
@@ -23,6 +19,6 @@
 </div>
 
 <div class="mb-3">
-    <label asp-for="CPF" class="form-label"></label>
-    <input asp-for="CPF" class="form-control" />
+    <label asp-for="Especialidade" class="form-label"></label>
+    <input asp-for="Especialidade" class="form-control" />
 </div>

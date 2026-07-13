@@ -1,18 +1,14 @@
-@using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
-@model ExcluirAlunoViewModel
+@using EscolaDeCursos.WebApp.ModuloMatricula.Apresentacao.Models
+@model ExcluirMatriculaViewModel
 
 @{
-    Layout = "_Layout";
-}
-
-@{
-    ViewData["Title"] = "Excluir Aluno";
+    ViewData["Title"] = "Excluir Matrícula";
 }
 
 <div class="page-header">
 
     <h2 class="titulo-pagina">
-        Excluir Aluno
+        Excluir Matrícula
     </h2>
 
     <a asp-action="Listar"
@@ -28,11 +24,10 @@
 
         <div class="alert alert-warning">
 
-            Tem certeza que deseja excluir o aluno:
-
-            <strong>
-                @Model.Nome
-            </strong>?
+            Tem certeza que deseja excluir a matrícula de
+            <strong>@Model.Aluno</strong>
+            na turma
+            <strong>@Model.Turma</strong>?
 
         </div>
 

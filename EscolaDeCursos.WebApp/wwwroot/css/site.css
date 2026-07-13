@@ -1,0 +1,98 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #f5f7fb;
+}
+
+.navbar-top {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+}
+
+.menu-titulo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar {
+    min-height: calc(100vh - 65px);
+    background-color: #1e293b;
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar .nav-link {
+    color: #cbd5e1;
+    border-radius: 8px;
+    margin: 5px 10px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #334155;
+    color: white;
+}
+
+.sidebar .nav-link.active {
+    background-color: #2563eb;
+    color: white;
+}
+
+.conteudo-principal {
+    padding: 2rem;
+}
+
+.card-dashboard {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+
+    transition: .3s;
+}
+
+.card-dashboard:hover {
+    transform: translateY(-5px);
+}
+
+.titulo-pagina {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead {
+    background-color: #f8fafc;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}

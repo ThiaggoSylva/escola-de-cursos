@@ -1,0 +1,51 @@
+@using EscolaDeCursos.ModuloCurso.Apresentacao.Models
+@model List<ListarCursoViewModel>
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Cursos</h2>
+
+<a asp-action="Inserir"
+   class="btn btn-primary mb-3">
+    Novo Curso
+</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Categoria</th>
+            <th>Nível</th>
+            <th>Carga Horária</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var curso in Model)
+        {
+            <tr>
+                <td>@curso.Titulo</td>
+                <td>@curso.Categoria</td>
+                <td>@curso.Nivel</td>
+                <td>@curso.CargaHoraria h</td>
+
+                <td>
+                    <a asp-action="Editar"
+                       asp-route-id="@curso.Id"
+                       class="btn btn-warning">
+                        Editar
+                    </a>
+
+                    <a asp-action="Excluir"
+                       asp-route-id="@curso.Id"
+                       class="btn btn-danger">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,20 @@
+@using EscolaDeCursos.ModuloCategoria.Apresentacao.Models
+@model FormularioCategoriaViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="mb-3">
+
+    <label asp-for="Titulo" class="form-label">
+    </label>
+
+    <input asp-for="Titulo"
+           class="form-control" />
+
+    <span asp-validation-for="Titulo"
+          class="text-danger">
+    </span>
+
+</div>

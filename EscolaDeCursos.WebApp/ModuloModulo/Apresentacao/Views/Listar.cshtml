@@ -1,25 +1,21 @@
-@using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
-@model List<ListarAlunoViewModel>
+@using EscolaDeCursos.WebApp.ModuloModulo.Apresentacao.Models
+@model List<ListarModuloViewModel>
 
 @{
-    Layout = "_Layout";
-}
-
-@{
-    ViewData["Title"] = "Alunos";
+    ViewData["Title"] = "Módulos";
 }
 
 <div class="page-header">
 
     <h2 class="titulo-pagina">
-        Alunos
+        Módulos
     </h2>
 
     <a asp-action="Inserir"
        class="btn btn-primary">
 
         <i class="bi bi-plus-circle"></i>
-        Novo Aluno
+        Novo Módulo
 
     </a>
 
@@ -32,7 +28,7 @@
         @if (!Model.Any())
         {
             <div class="alert alert-info">
-                Nenhum aluno cadastrado.
+                Nenhum módulo cadastrado.
             </div>
         }
         else
@@ -42,10 +38,10 @@
                 <thead>
 
                     <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>CPF</th>
+                        <th>Título</th>
+                        <th>Ordem</th>
+                        <th>Duração (horas)</th>
+                        <th>Curso</th>
                         <th width="180">Ações</th>
                     </tr>
 
@@ -53,22 +49,22 @@
 
                 <tbody>
 
-                    @foreach (var aluno in Model)
+                    @foreach (var modulo in Model)
                     {
                         <tr>
 
-                            <td>@aluno.Nome</td>
+                            <td>@modulo.Titulo</td>
 
-                            <td>@aluno.Email</td>
+                            <td>@modulo.Ordem</td>
 
-                            <td>@aluno.Telefone</td>
+                            <td>@modulo.Duracao</td>
 
-                            <td>@aluno.CPF</td>
+                            <td>@modulo.Curso</td>
 
                             <td>
 
                                 <a asp-action="Editar"
-                                   asp-route-id="@aluno.Id"
+                                   asp-route-id="@modulo.Id"
                                    class="btn btn-sm btn-warning">
 
                                     <i class="bi bi-pencil"></i>
@@ -76,7 +72,7 @@
                                 </a>
 
                                 <a asp-action="Excluir"
-                                   asp-route-id="@aluno.Id"
+                                   asp-route-id="@modulo.Id"
                                    class="btn btn-sm btn-danger">
 
                                     <i class="bi bi-trash"></i>
