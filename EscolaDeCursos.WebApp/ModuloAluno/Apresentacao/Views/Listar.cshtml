@@ -1,0 +1,94 @@
+@using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
+@model List<ListarAlunoViewModel>
+
+@{
+    ViewData["Title"] = "Alunos";
+}
+
+<div class="page-header">
+
+    <h2 class="titulo-pagina">
+        Alunos
+    </h2>
+
+    <a asp-action="Inserir"
+       class="btn btn-primary">
+
+        <i class="bi bi-plus-circle"></i>
+        Novo Aluno
+
+    </a>
+
+</div>
+
+<div class="card card-dashboard">
+
+    <div class="card-body">
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                Nenhum aluno cadastrado.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>CPF</th>
+                        <th width="180">Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var aluno in Model)
+                    {
+                        <tr>
+
+                            <td>@aluno.Nome</td>
+
+                            <td>@aluno.Email</td>
+
+                            <td>@aluno.Telefone</td>
+
+                            <td>@aluno.CPF</td>
+
+                            <td>
+
+                                <a asp-action="Editar"
+                                   asp-route-id="@aluno.Id"
+                                   class="btn btn-sm btn-warning">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+                                <a asp-action="Excluir"
+                                   asp-route-id="@aluno.Id"
+                                   class="btn btn-sm btn-danger">
+
+                                    <i class="bi bi-trash"></i>
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        }
+
+    </div>
+
+</div>

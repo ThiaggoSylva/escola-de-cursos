@@ -1,0 +1,54 @@
+@using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
+@model ExcluirAlunoViewModel
+
+@{
+    ViewData["Title"] = "Excluir Aluno";
+}
+
+<div class="page-header">
+
+    <h2 class="titulo-pagina">
+        Excluir Aluno
+    </h2>
+
+    <a asp-action="Listar"
+       class="btn btn-outline-secondary">
+        Voltar
+    </a>
+
+</div>
+
+<div class="card card-dashboard">
+
+    <div class="card-body">
+
+        <div class="alert alert-warning">
+
+            Tem certeza que deseja excluir o aluno:
+
+            <strong>
+                @Model.Nome
+            </strong>?
+
+        </div>
+
+        <form asp-action="ConfirmarExclusao">
+
+            <input type="hidden"
+                   asp-for="Id" />
+
+            <button type="submit"
+                    class="btn btn-danger">
+                Confirmar Exclusão
+            </button>
+
+            <a asp-action="Listar"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+
+        </form>
+
+    </div>
+
+</div>

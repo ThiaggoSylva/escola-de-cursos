@@ -1,0 +1,51 @@
+@using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
+@model EditarAlunoViewModel
+
+@{
+    ViewData["Title"] = "Editar Aluno";
+}
+
+<div class="page-header">
+
+    <h2 class="titulo-pagina">
+        Editar Aluno
+    </h2>
+
+    <a asp-action="Listar"
+       class="btn btn-outline-secondary">
+        Voltar
+    </a>
+
+</div>
+
+<div class="card card-dashboard">
+
+    <div class="card-body">
+
+        <form method="post">
+
+            <input type="hidden"
+                   asp-for="Id" />
+
+            <partial name="Formulario"
+                     model="Model" />
+
+            <div class="mt-3">
+
+                <button type="submit"
+                        class="btn btn-warning">
+                    Salvar Alterações
+                </button>
+
+                <a asp-action="Listar"
+                   class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
