@@ -1,34 +1,56 @@
 @using EscolaDeCursos.ModuloCurso.Apresentacao.Models
 @model ExcluirCursoViewModel
 
-@{
-    Layout = "_Layout";
-}
+<div class="page-header">
 
-@{
-    ViewBag.Titulo = "Excluir Curso";
-}
+    <h2 class="titulo-pagina">
+        Excluir Registro
+    </h2>
 
-<h2>@ViewBag.Titulo</h2>
+</div>
 
-<p>
-    Deseja realmente excluir o curso
-    <strong>@Model.Titulo</strong>?
-</p>
+<div class="card shadow border-danger">
 
-<form asp-action="ConfirmarExclusao">
+    <div class="card-body text-center">
 
-    <input type="hidden"
-           asp-for="Id"/>
+        <i class="bi bi-exclamation-triangle-fill fs-1 text-danger"></i>
 
-    <button type="submit"
-            class="btn btn-danger">
-        Confirmar
-    </button>
+        <h4 class="mt-3">
+            Deseja realmente excluir este registro?
+        </h4>
 
-    <a asp-action="Listar"
-       class="btn btn-secondary">
-        Cancelar
-    </a>
+        <hr />
 
-</form>
+        <h5>
+            @Model.Titulo
+        </h5>
+
+        <form asp-action="ConfirmarExclusao"
+              method="post">
+
+            <input asp-for="Id"
+                   type="hidden" />
+
+            <div class="d-flex justify-content-center gap-2 mt-4">
+
+                <a asp-action="Listar"
+                   class="btn btn-secondary">
+
+                    Cancelar
+
+                </a>
+
+                <button type="submit"
+                        class="btn btn-danger">
+
+                    Excluir
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

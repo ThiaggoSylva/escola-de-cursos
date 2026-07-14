@@ -1,50 +1,56 @@
 @using EscolaDeCursos.WebApp.ModuloMatricula.Apresentacao.Models
 @model ExcluirMatriculaViewModel
-
-@{
-    ViewData["Title"] = "Excluir Matrícula";
-}
-
 <div class="page-header">
 
     <h2 class="titulo-pagina">
-        Excluir Matrícula
+        Excluir Registro
     </h2>
-
-    <a asp-action="Listar"
-       class="btn btn-outline-secondary">
-        Voltar
-    </a>
 
 </div>
 
-<div class="card card-dashboard">
+<div class="card shadow border-danger">
 
-    <div class="card-body">
+    <div class="card-body text-center">
 
-        <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle-fill fs-1 text-danger"></i>
 
-            Tem certeza que deseja excluir a matrícula de
-            <strong>@Model.Aluno</strong>
-            na turma
-            <strong>@Model.Turma</strong>?
+        <h4 class="mt-3">
+            Deseja realmente excluir este registro?
+        </h4>
 
-        </div>
+        <hr />
 
-        <form asp-action="ConfirmarExclusao">
+        <h5>
+            Aluno: @Model.Aluno
+        </h5>
 
-            <input type="hidden"
-                   asp-for="Id" />
+        <h6 class="text-muted">
+            Turma: @Model.Turma
+        </h6>
 
-            <button type="submit"
-                    class="btn btn-danger">
-                Confirmar Exclusão
-            </button>
+        <form asp-action="ConfirmarExclusao"
+              method="post">
 
-            <a asp-action="Listar"
-               class="btn btn-secondary">
-                Cancelar
-            </a>
+            <input asp-for="Id"
+                   type="hidden" />
+
+            <div class="d-flex justify-content-center gap-2 mt-4">
+
+                <a asp-action="Listar"
+                   class="btn btn-secondary">
+
+                    Cancelar
+
+                </a>
+
+                <button type="submit"
+                        class="btn btn-danger">
+
+                    Excluir
+
+                </button>
+
+            </div>
 
         </form>
 

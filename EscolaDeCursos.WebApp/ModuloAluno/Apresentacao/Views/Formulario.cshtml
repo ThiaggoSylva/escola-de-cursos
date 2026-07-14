@@ -1,28 +1,92 @@
 @using EscolaDeCursos.WebApp.ModuloAluno.Apresentacao.Models
 @model FormularioAlunoViewModel
 
-@{
-    Layout = "_Layout";
-}
+<div class="card shadow-sm border-0 rounded-4">
 
-<div class="mb-3">
-    <label asp-for="Nome" class="form-label"></label>
-    <input asp-for="Nome" class="form-control" />
-    <span asp-validation-for="Nome" class="text-danger"></span>
-</div>
+    <div class="card-header bg-white border-0 pt-4">
 
-<div class="mb-3">
-    <label asp-for="Email" class="form-label"></label>
-    <input asp-for="Email" class="form-control" />
-    <span asp-validation-for="Email" class="text-danger"></span>
-</div>
+        <h4 class="fw-bold text-primary mb-0">
+            <i class="bi bi-person-vcard"></i>
+            Dados do Aluno
+        </h4>
 
-<div class="mb-3">
-    <label asp-for="Telefone" class="form-label"></label>
-    <input asp-for="Telefone" class="form-control" />
-</div>
+    </div>
 
-<div class="mb-3">
-    <label asp-for="CPF" class="form-label"></label>
-    <input asp-for="CPF" class="form-control" />
+    <div class="card-body p-4">
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <label asp-for="Nome"
+                       class="form-label fw-semibold">
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+                        <i class="bi bi-person"></i>
+                    </span>
+
+                    <input asp-for="Nome"
+                           class="form-control" />
+
+                </div>
+
+                <span asp-validation-for="Nome"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label asp-for="Email"
+                       class="form-label fw-semibold">
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope"></i>
+                    </span>
+
+                    <input asp-for="Email"
+                           class="form-control" />
+
+                </div>
+
+                <span asp-validation-for="Email"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label asp-for="CPF"
+                       class="form-label fw-semibold">
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope"></i>
+                    </span>
+
+                    <input asp-for="CPF"
+                           class="form-control" />
+
+                </div>
+
+                <span asp-validation-for="CPF"
+                      class="text-danger">
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

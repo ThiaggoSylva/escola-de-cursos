@@ -1,55 +1,53 @@
 @using EscolaDeCursos.ModuloCategoria.Apresentacao.Models
 @model ExcluirCategoriaViewModel
 
-@{
-    Layout = "_Layout";
-}
-
-@{
-    ViewData["Title"] = "Excluir Categoria";
-}
-
 <div class="page-header">
 
     <h2 class="titulo-pagina">
-        Excluir Categoria
+        Excluir Registro
     </h2>
-
-    <a asp-action="Listar"
-       class="btn btn-outline-secondary">
-        Voltar
-    </a>
 
 </div>
 
-<div class="card card-dashboard">
+<div class="card shadow border-danger">
 
-    <div class="card-body">
+    <div class="card-body text-center">
 
-        <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle-fill fs-1 text-danger"></i>
 
-            Tem certeza que deseja excluir a categoria:
+        <h4 class="mt-3">
+            Deseja realmente excluir este registro?
+        </h4>
 
-            <strong>
-                @Model.Titulo
-            </strong>?
+        <hr />
 
-        </div>
+        <h5>
+            @Model.Titulo
+        </h5>
 
-        <form asp-action="ConfirmarExclusao">
+        <form asp-action="ConfirmarExclusao"
+              method="post">
 
-            <input type="hidden"
-                   asp-for="Id" />
+            <input asp-for="Id"
+                   type="hidden" />
 
-            <button type="submit"
-                    class="btn btn-danger">
-                Confirmar Exclusão
-            </button>
+            <div class="d-flex justify-content-center gap-2 mt-4">
 
-            <a asp-action="Listar"
-               class="btn btn-secondary">
-                Cancelar
-            </a>
+                <a asp-action="Listar"
+                   class="btn btn-secondary">
+
+                    Cancelar
+
+                </a>
+
+                <button type="submit"
+                        class="btn btn-danger">
+
+                    Excluir
+
+                </button>
+
+            </div>
 
         </form>
 

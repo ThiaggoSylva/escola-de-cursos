@@ -1,20 +1,33 @@
 @using EscolaDeCursos.ModuloCategoria.Apresentacao.Models
 @model FormularioCategoriaViewModel
 
-@{
-    Layout = "_Layout";
-}
+<div class="card card-dashboard">
 
-<div class="mb-3">
+    <div class="card-body">
 
-    <label asp-for="Titulo" class="form-label">
-    </label>
+        <div class="row">
 
-    <input asp-for="Titulo"
-           class="form-control" />
+            <div class="col-md-12">
 
-    <span asp-validation-for="Titulo"
-          class="text-danger">
-    </span>
+                <div class="mb-4">
+
+                    <label asp-for="Titulo"
+                           class="form-label">
+                    </label>
+
+                    <input asp-for="Titulo"
+                           class="form-control form-control-lg" />
+
+                    <span asp-validation-for="Titulo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
