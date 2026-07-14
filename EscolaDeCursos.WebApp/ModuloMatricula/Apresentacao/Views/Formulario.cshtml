@@ -1,104 +1,54 @@
 @using EscolaDeCursos.WebApp.ModuloMatricula.Apresentacao.Models
+@using EscolaDeCursos.Dominio.Enumeradores
 @model FormularioMatriculaViewModel
 
-<div class="row">
+<div class="card shadow-sm border-0 rounded-4">
 
-    <div class="col-md-6">
-
-        <div class="mb-3">
-
-            <label asp-for="AlunoId"
-                   class="form-label">
-            </label>
-
-            <select asp-for="AlunoId"
-                    asp-items="Model.Alunos"
-                    class="form-select">
-
-                <option value="">
-                    Selecione um aluno
-                </option>
-
-            </select>
-
-            <span asp-validation-for="AlunoId"
-                  class="text-danger">
-            </span>
-
-        </div>
-
+    <div class="card-header bg-white border-0 pt-4">
+        <h4 class="fw-bold text-primary mb-0">
+            <i class="bi bi-journal-check"></i>
+            Dados da Matrícula
+        </h4>
     </div>
 
-    <div class="col-md-6">
+    <div class="card-body p-4">
 
-        <div class="mb-3">
+        <div class="row g-4">
 
-            <label asp-for="TurmaId"
-                   class="form-label">
-            </label>
+            <div class="col-md-6">
+                <label asp-for="AlunoId" class="form-label fw-semibold"></label>
 
-            <select asp-for="TurmaId"
-                    asp-items="Model.Turmas"
-                    class="form-select">
+                <select asp-for="AlunoId"
+                        asp-items="Model.Alunos"
+                        class="form-select">
+                </select>
+            </div>
 
-                <option value="">
-                    Selecione uma turma
-                </option>
+            <div class="col-md-6">
+                <label asp-for="TurmaId" class="form-label fw-semibold"></label>
 
-            </select>
+                <select asp-for="TurmaId"
+                        asp-items="Model.Turmas"
+                        class="form-select">
+                </select>
+            </div>
 
-            <span asp-validation-for="TurmaId"
-                  class="text-danger">
-            </span>
+            <div class="col-md-6">
+                <label asp-for="DataMatricula" class="form-label fw-semibold"></label>
 
-        </div>
+                <input asp-for="DataMatricula"
+                       type="date"
+                       class="form-control" />
+            </div>
 
-    </div>
+            <div class="col-md-6">
+                <label asp-for="Situacao" class="form-label fw-semibold"></label>
 
-</div>
-
-<div class="row">
-
-    <div class="col-md-4">
-
-        <div class="mb-3">
-
-            <label asp-for="DataMatricula"
-                   class="form-label">
-            </label>
-
-            <input asp-for="DataMatricula"
-                   type="date"
-                   class="form-control" />
-
-            <span asp-validation-for="DataMatricula"
-                  class="text-danger">
-            </span>
-
-        </div>
-
-    </div>
-
-    <div class="col-md-4">
-
-        <div class="mb-3">
-
-            <label asp-for="Situacao"
-                   class="form-label">
-            </label>
-
-            <select asp-for="Situacao"
-                    class="form-select">
-
-                <option value="Ativa">Ativa</option>
-                <option value="Concluida">Concluída</option>
-                <option value="Cancelada">Cancelada</option>
-
-            </select>
-
-            <span asp-validation-for="Situacao"
-                  class="text-danger">
-            </span>
+                <select asp-for="Situacao"
+                        asp-items="Html.GetEnumSelectList<SituacaoMatricula>()"
+                        class="form-select">
+                </select>
+            </div>
 
         </div>
 

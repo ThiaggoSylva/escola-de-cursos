@@ -1,71 +1,41 @@
 @using EscolaDeCursos.WebApp.ModuloModulo.Apresentacao.Models
 @model FormularioModuloViewModel
 
-<div class="row">
+<div class="card shadow-sm border-0 rounded-4">
 
-    <div class="col-md-8">
-
-        <div class="mb-3">
-
-            <label asp-for="Titulo"
-                   class="form-label">
-            </label>
-
-            <input asp-for="Titulo"
-                   class="form-control" />
-
-            <span asp-validation-for="Titulo"
-                  class="text-danger">
-            </span>
-
-        </div>
-
+    <div class="card-header bg-white border-0 pt-4">
+        <h4 class="fw-bold text-primary mb-0">
+            <i class="bi bi-collection"></i>
+            Dados do Módulo
+        </h4>
     </div>
 
-    <div class="col-md-4">
+    <div class="card-body p-4">
 
-        <div class="mb-3">
+        <div class="row g-4">
 
-            <label asp-for="Ordem"
-                   class="form-label">
-            </label>
+            <div class="col-md-6">
+                <label asp-for="Titulo" class="form-label fw-semibold"></label>
+                <input asp-for="Titulo" class="form-control" />
+            </div>
 
-            <input asp-for="Ordem"
-                   class="form-control" />
+            <div class="col-md-2">
+                <label asp-for="Ordem" class="form-label fw-semibold"></label>
+                <input asp-for="Ordem" class="form-control" />
+            </div>
 
-            <span asp-validation-for="Ordem"
-                  class="text-danger">
-            </span>
+            <div class="col-md-4">
+                <label asp-for="Duracao" class="form-label fw-semibold"></label>
+                <input asp-for="Duracao" class="form-control" />
+            </div>
 
-        </div>
-
-    </div>
-
-</div>
-
-<div class="row">
-
-    <div class="col-md-12">
-
-        <div class="mb-3">
-
-            <label asp-for="CursoId"
-                   class="form-label">
-            </label>
-
-            <select asp-for="CursoId"
-                    asp-items="Model.Cursos"
-                    class="form-select">
-
-                <option value="">
-                    Selecione um curso
-                </option>
-
-            </select>
-
-            <span asp-validation-for="CursoId"
-                  class="text-danger">
-            </span>
+            <div class="col-md-12">
+                <label asp-for="CursoId" class="form-label fw-semibold"></label>
+                <select asp-for="CursoId"
+                        asp-items="Model.Cursos"
+                        class="form-select">
+                </select>
+            </div>
 
         </div>
 

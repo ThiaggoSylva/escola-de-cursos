@@ -1,61 +1,55 @@
-@using EscolaDeCursos.Dominio.Enumeradores
 @using EscolaDeCursos.ModuloCurso.Apresentacao.Models
+@using EscolaDeCursos.Dominio.Enumeradores
 @model FormularioCursoViewModel
 
-@{
-    Layout = "_Layout";
-}
+<div class="card shadow-sm border-0 rounded-4">
 
-<div asp-validation-summary="All"></div>
+    <div class="card-header bg-white border-0 pt-4">
+        <h4 class="fw-bold text-primary mb-0">
+            <i class="bi bi-journal-bookmark"></i>
+            Dados do Curso
+        </h4>
+    </div>
 
-<div class="mb-3">
-    <label asp-for="Titulo"></label>
+    <div class="card-body p-4">
 
-    <input asp-for="Titulo"
-           class="form-control"/>
+        <div class="row g-4">
 
-    <span asp-validation-for="Titulo"></span>
+            <div class="col-md-12">
+                <label asp-for="Titulo" class="form-label fw-semibold"></label>
+                <input asp-for="Titulo" class="form-control" />
+            </div>
+
+            <div class="col-md-12">
+                <label asp-for="Descricao" class="form-label fw-semibold"></label>
+                <textarea asp-for="Descricao"
+                          rows="4"
+                          class="form-control"></textarea>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="CargaHoraria" class="form-label fw-semibold"></label>
+                <input asp-for="CargaHoraria" class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Nivel" class="form-label fw-semibold"></label>
+                <select asp-for="Nivel"
+                        asp-items="Html.GetEnumSelectList<NivelCurso>()"
+                        class="form-select">
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="CategoriaId" class="form-label fw-semibold"></label>
+                <select asp-for="CategoriaId"
+                        asp-items="Model.Categorias"
+                        class="form-select">
+                </select>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-
-<div class="mb-3">
-    <label asp-for="Descricao"></label>
-
-    <textarea asp-for="Descricao"
-              class="form-control">
-    </textarea>
-</div>
-
-<div class="mb-3">
-    <label asp-for="CargaHoraria"></label>
-
-    <input asp-for="CargaHoraria"
-           class="form-control"/>
-</div>
-
-<div class="mb-3">
-    <label asp-for="Nivel"></label>
-
-    <select asp-for="Nivel"
-            asp-items="Html.GetEnumSelectList<NivelCurso>()"
-            class="form-select">
-    </select>
-</div>
-
-<div class="mb-3">
-    <label asp-for="CategoriaId"></label>
-
-    <select asp-for="CategoriaId"
-            asp-items="Model.Categorias"
-            class="form-select">
-    </select>
-</div>
-
-<button type="submit"
-        class="btn btn-primary">
-    Salvar
-</button>
-
-<a asp-action="Listar"
-   class="btn btn-secondary">
-    Voltar
-</a>
